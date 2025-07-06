@@ -9,11 +9,12 @@ const Listing =require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const engine = require('ejs-mate');
-const dbUrl= process.env.ATLAS;
+const mongourl = "mongodb://127.0.0.1:27017/wonderlust";
+
 const Review = require("./models/review.js");
 const listings = require("./routess/listing.js");
 const session = require("express-session");
-const MongoStore = require('connect-mongo');
+// const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
@@ -28,7 +29,7 @@ main()
   });
 
 async function main(){
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(mongourl);
 }
 
 app.set("view engine", "ejs");
@@ -41,21 +42,11 @@ app.use(express.static('public'));
 
 
 
-const store = MongoStore.create({
-  mongoUrl: dbUrl,
-  crypto: {
-    secret: process.env.SECRET,
-  },
-  touchAfter: 24 * 3600, // time in seconds
-});
 
-store.on("error", function(e) {
-  console.log("Session store error", e);
-});
+  
 
 const sessionoptions = {
-  store: store,
-  secret: process.env.SECRET,
+  secret: "thisshouldbeasecret",
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -64,6 +55,7 @@ const sessionoptions = {
     httpOnly: true, // Helps prevent XSS attacks
   },
 };
+
 
 
 
