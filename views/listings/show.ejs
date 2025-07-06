@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/news.css">
+  <title>WonderLust</title>
+</head>
+<body>
+  <h3>Welcome to Show Listing</h3>
+  <div class="row">
+    <div class="col-8 offset-2 mb-3">
+
+      <h3><%= listing.title %></h3>
+      <div class="listing-card">
+        <img src="<%=listing.image.url%>" class="card-img-top show-img" alt="...">
+        <div class="card-body">
+          <p class="card-text"><%= listing.title %></p>
+        </div>
+      </div>
+
+      <ul>
+        <li><%= listing.title %></li>
+        <li><%= listing.description %></li>
+        <li>&#8377;<%= listing.price %></li>
+        <li><%= listing.location %></li>
+        <li><%= listing.country %></li>
+      </ul>
+
+      <br/>
+
+      <% if (isOwner) { %>
+        <div class="bts">
+          <a href="/listings/<%= listing._id %>/edit">
+            <button class="btn btn-dark">EDIT</button>
+          </a>
+          <br><br>
+          <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+            <button class="btn btn-dark">DELETE</button>
+          </form>
+        </div>
+      <% } %>
+
+    </div>
+  </div>
+
+
+
+
+<div class="col-8 offset-3">
+  <h4>Leave a Review</h4>
+  <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="needs-validation">
+    
+    <div class="mb-3 mt-3">
+      <label class="form-label d-block">Rating</label>
+      <div id="starRating" class="mb-2" style="font-size: 1.5rem; cursor: pointer;">
+        <% for (let i = 1; i <= 5; i++) { %>
+          <span class="star" data-value="<%= i %>">☆</span>
+        <% } %>
+      </div>
+      <!-- hidden input to store the selected rating -->
+      <input type="hidden" name="review[rating]" id="rating" required>
+      <div class="invalid-feedback">Please select a rating</div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="comment" class="form-label">Comment</label>
+      <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+      <div class="invalid-feedback">Please add some comments</div>
+    </div>
+
+    <button class="btn btn-dark">Submit</button>
+  </form>
+  <hr/>
+</div>
+
+<script>
+  // STAR RATING HANDLER
+  const stars = document.querySelectorAll(".star");
+  const ratingInput = document.getElementById("rating");
+
+  stars.forEach(star => {
+    star.addEventListener("click", () => {
+      const value = parseInt(star.getAttribute("data-value"));
+      ratingInput.value = value;
+
+      // Highlight stars
+      stars.forEach(s => {
+        s.textContent = parseInt(s.getAttribute("data-value")) <= value ? "★" : "☆";
+      });
+    });
+  });
+</script>
+
+
+    <p><b>All Reviews</b></p>
+    <div class="row">
+    <% for (let review of listing.reviews) { %>
+        <div class="card col-5 ms-3 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= review.author && review.author.username ? review.author.username : "Anonymous" %>
+                </h5>
+                <p class="card-text"><%= review.comment %></p>
+                <p class="card-text"><%= review.rating %> Stars</p>
+            </div>
+
+            <% if (currentUser && review.author && review.author._id.toString() === currentUser._id.toString()) { %>
+                <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                    <button class="btn btn-sm btn-dark">Delete</button>
+                </form>
+            <% } %>
+        </div>
+    <% } %>
+    </div>
+</div>

@@ -1,0 +1,355 @@
+/* Listing Card */
+.listing-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 700px;
+  padding-bottom: 20px;
+}
+
+.listing-card:hover {
+  transform: scale(1.01);
+}
+
+/* Image Styling */
+.card-img-top {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+/* Card Body */
+.card-body {
+  padding: 20px;
+}
+
+.card-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* Details List */
+ul {
+  list-style: none;
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+ul li {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Buttons */
+button.btn {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button.btn:hover {
+  background-color: #1a252f;
+}
+
+/* Spacing */
+a {
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+form {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.col-8.offset-3 {
+    background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+}
+
+.col-8.offset-3 h4 {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+    font-size: 1.8rem;
+}
+
+.col-8.offset-3 h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+/* Review Form Styling */
+.needs-validation {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    border: 1px solid #e8ecf4;
+}
+
+.needs-validation .form-label {
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+/* Rating Slider Styling */
+.form-range {
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, #e74c3c 0%, #f39c12 25%, #f1c40f 50%, #2ecc71 75%, #27ae60 100%);
+    border-radius: 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 3px solid #667eea;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.form-range::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.form-range::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 3px solid #667eea;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Comment Textarea Styling */
+.form-control {
+    border: 2px solid #e8ecf4;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Submit Button Styling */
+.btn-dark {
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+    border: none !important;
+    padding: 12px 30px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(45deg, #5a6fd8, #6a42a0) !important;
+}
+
+.btn-dark:active {
+    transform: translateY(0);
+}
+
+/* Reviews Section Styling */
+.col-8.offset-3 p b {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 1.6rem;
+    position: relative;
+}
+
+.col-8.offset-3 p:has(b)::before {
+    content: '⭐';
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Individual Review Card Styling */
+.card {
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid #f1f3f6 !important;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card-body {
+    padding: 1.5rem !important;
+}
+
+.card .card-title {
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 1rem !important;
+    display: flex;
+    align-items: center;
+}
+
+.card .card-title::before {
+    content: '👤';
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.card .card-text {
+    color: #5a6c7d !important;
+    line-height: 1.6;
+    margin-bottom: 1rem !important;
+    font-size: 1rem;
+}
+
+.card .card-text:first-of-type {
+    font-style: italic;
+}
+
+.card .card-text:last-of-type {
+    color: #f39c12 !important;
+    font-weight: 600 !important;
+    display: flex;
+    align-items: center;
+}
+
+.card .card-text:last-of-type::before {
+    content: '⭐';
+    margin-right: 0.3rem;
+    font-size: 1rem;
+}
+
+/* Delete Button Styling */
+.card form .btn-sm {
+    background: linear-gradient(45deg, #e74c3c, #c0392b) !important;
+    border: none !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+}
+
+.card form .btn-sm:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+    background: linear-gradient(45deg, #c0392b, #a93226) !important;
+}
+
+/* Separator Styling */
+hr {
+    border: none !important;
+    height: 2px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    margin: 2rem 0 !important;
+    border-radius: 2px;
+    opacity: 0.3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .col-8.offset-3 {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .needs-validation {
+        padding: 1.5rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem !important;
+    }
+    
+    .col-5 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Animation for form validation */
+.invalid-feedback {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.form-control.is-invalid {
+    border-color: #e74c3c;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}

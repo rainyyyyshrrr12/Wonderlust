@@ -1,0 +1,46 @@
+<% layout("/layouts/boilerplate") %>
+<h3>EDIT YOUR LISTING</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div>
+            <lable for="title" class="form-label">Title</lable>
+            <input name="listing[title]" value="<%= listing.title %>" type="text" required class="form-control" />
+            <div class="valid-feedback"> LOOKS GOOD!</div>
+        <div class="invalid-feedback"> PLEASE ENTER A VALID TITLE</div>
+        
+        </div>
+         <div>
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" placeholder="enter description" class="form-control" required></textarea>
+            <div class="invalid-feedback"> PLEASE ENTER A VALID DESCRIPTION</div>
+
+    <div>
+        <br>
+        <div>
+            <lable for="title" class="form-label">Image</lable>
+            <input name="listing[image]" value="<%= listing.image %>" type="file" class="form-control" />
+        
+        </div>
+        <br>
+        <div>
+            <lable for="title" class="form-label">Price</lable>
+            <input name="listing[price]" value="<%= listing.price %>" type="number" required class="form-control" />
+            <div class="invalid-feedback"> PLEASE ENTER A VALID PRICE</div>
+        
+        </div>
+        <br>
+        <div>
+            <lable for="title" class="form-label">Country</lable>
+            <input name="listing[country]" value="<%= listing.country %>" type="text" required class="form-control"/>
+            <div class="invalid-feedback"> PLEASE ENTER A VALID COUNTRY NAME</div>
+    
+        </div>
+        <br>
+        <div>
+            <lable for="title" class="form-label">Location</lable>
+            <input name="listing[location]" value="<%= listing.location %>" type="text" required class="form-control"/>
+            <div class="invalid-feedback"> PLEASE ENTER A VALID LOCATION</div>
+            
+        </div>
+        <button style="color: black;">EDIT</button>
+    </form>
+    <script src="/js/script.js"></script>

@@ -1,0 +1,45 @@
+<% layout("/layouts/boilerplate") %>
+<div class="form-container">
+<h3>CREATE NEW LISTING</h3>
+ <div class="col-6 offset-3">
+<form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+    <div>
+        <lable for="title" class="form-label">Title</lable>
+        <input name="listing[title]" placeholder="enter title" type="text" class="form-control" required/>
+        <div class="valid-feedback"> LOOKS GOOD!</div>
+        <div class="invalid-feedback"> PLEASE ENTER A VALID TITLE</div>
+    </div>
+    <br>
+
+        <div>
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" placeholder="enter description" class="form-control" required></textarea>
+            <div class="invalid-feedback"> PLEASE ENTER A VALID DESCRIPTION</div>
+
+   
+    <div>
+        <label for="image" class="form-label">Image File</label>
+        <input name="listing[image]" type="file" class="form-control" aria-label="default input example"/>
+        <div class="invalid-feedback"> PLEASE UPLOAD A VALID IMAGE FILE</div>
+    <div>
+        <label for="price" class="form-label">Price</label>
+        <input name="listing[price]" placeholder="enter price" type="number" class="form-control" required/>
+        <div class="invalid-feedback"> PLEASE ENTER A VALID PRICE</div>
+    </div>
+    <br>
+    <div>
+        <label for="country" class="form-label">Country</label>
+        <input name="listing[country]" placeholder="enter country" type="text" class="form-control" required/>
+        <div class="invalid-feedback"> PLEASE ENTER A VALID COUNTRY NAME</div>
+    </div>
+    <br>
+    <div>
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]" placeholder="enter location" type="text" class="form-control"/>
+        <div class="invalid-feedback"> PLEASE ENTER A VALID LOCATION</div>
+    </div>
+    <BR>
+    <button class="btn btn-dark">ADD</button>
+</form>
+</div>
+</div>
